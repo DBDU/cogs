@@ -1,3 +1,5 @@
+from collections import OrderedDict
+
 from discord.ext import commands
 
 
@@ -16,7 +18,7 @@ class Utility:
         if len(options) > 9:
             raise commands.BadArgument("A vote can have a maximum of 9 options.")
 
-        options_dict = {keycap(i+1): opt for i, opt in enumerate(options)}
+        options_dict = OrderedDict((keycap(i), opt) for i, opt in enumerate(options, 1))
         options_str = '\n'.join(f'{kc} - {opt}' for kc, opt in options_dict.items())
         vote = await ctx.send(f"{ctx.author.display_name}: {question}\n\n{options_str}")
         for kc in options_dict.keys():

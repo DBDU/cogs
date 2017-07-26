@@ -7,7 +7,7 @@ from discord.ext import commands
 
 class HierarchyMember(commands.MemberConverter):
     """
-    A member converter that respects Discords role hierarchy system.
+    A member converter that respects Discord's role hierarchy system.
     """
     async def convert(self, ctx, arg):
         member = await super().convert(ctx, arg)

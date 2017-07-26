@@ -80,7 +80,7 @@ class Moderation:
         """
         Softban a member.
 
-        A soft ban is equivalent to kicking a member and purging their messages.
+        A softban is equivalent to kicking a member and purging their messages.
         This is done by banning the member and immediately unbanning them.
         """
         await member.ban(reason=reason)
@@ -92,7 +92,7 @@ class Moderation:
     @commands.has_permissions(ban_members=True)
     async def ban(self, ctx, user: HackMember, *, reason: str = None):
         """
-        Ban an user.
+        Ban a user.
 
         You can also ban users who are not in your server by passing in their ID as the argument.
         """
@@ -104,7 +104,7 @@ class Moderation:
     @commands.has_permissions(ban_members=True)
     async def unban(self, ctx, user: BannedUser, *, reason: str = None):
         """
-        Unban an user.
+        Unban a user.
         """
         await ctx.guild.unban(user, reason=reason)
         await ctx.send("\N{BABY ANGEL} Welcome back!")
